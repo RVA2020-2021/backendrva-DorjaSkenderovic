@@ -4,10 +4,7 @@
 
 <div class="container mat-elavation-z8">
   <mat-form-field>
-    <input
-      matInput
-      placeholder="Pretraga tipova računa..."
-      (keyup)="applyFilter($event.target.value)">
+    <input matInput placeholder="Pretraga tipova računa..." (keyup)="applyFilter($event.target.value)">
   </mat-form-field>
   <mat-table #table matSort [dataSource]="dataSource" class="mat-cell">
     <!--ID-->
@@ -38,23 +35,18 @@
         </button>
       </mat-header-cell>
       <mat-cell *matCellDef="let row; let i = index">
-        <button (click)="openDialog(2, row.id, row.naziv, row.proizvodjac)" mat-icon-button color="primary">
+        <button (click)="openDialog(2, row.id, row.naziv, row.oznaka, row.opis)" mat-icon-button color="primary">
           <mat-icon aria-label="Edit">edit</mat-icon>
         </button>
-        <button (click)="openDialog(3, row.id, row.naziv, row.proizvodjac)" mat-icon-button color="primary">
+        <button (click)="openDialog(3, row.id, row.naziv, row.oznaka, row.opis)" mat-icon-button color="primary">
           <mat-icon aria-label="Delete">delete</mat-icon>
         </button>
       </mat-cell>
     </ng-container>
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row
-      style="cursor: pointer;"
-      *matRowDef="let row; columns: displayedColumns">
+    <mat-row style="cursor: pointer;" *matRowDef="let row; columns: displayedColumns">
     </mat-row>
   </mat-table>
-  <mat-paginator
-    [length]="100"
-    [pageSize]="5"
-    [pageSizeOptions]="[5,10,25,100]">
+  <mat-paginator [length]="100" [pageSize]="5" [pageSizeOptions]="[5,10,25,100]">
   </mat-paginator>
 </div>
